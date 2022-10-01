@@ -1,0 +1,235 @@
+:root {
+    font-size: 2em;
+    --bg: url("img/backgrounds/clouds.jpg")
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    font-family: "Roboto Light", sans-serif;
+}
+
+body, .frosty:before {
+    background: #191919 var(--bg) no-repeat fixed center;
+    background-size: cover;
+}
+
+/*
+    Time display
+*/
+
+h1#current-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    margin: 0;
+
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent);
+    color: lightgray;
+    text-shadow: 0 0 9px #191919;
+    font-size: 4rem;
+    mix-blend-mode: overlay;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 25rem;
+    height: 15rem;
+    padding: 10px 5px;
+    margin: auto;
+}
+
+/*
+    glass effect
+*/
+
+.frosty {
+    position: relative;
+    background: hsla(0, 0%, 100%, .3);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    overflow: hidden;
+}
+
+.frosty:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+    margin: -35px;
+    filter: blur(20px);
+    z-index: -1;
+}
+
+/*
+    user select
+*/
+
+#user {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    color: black;
+    mix-blend-mode: overlay;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: underline white 1px;
+}
+
+#user:focus {
+    outline: none;
+}
+
+/*
+    Password input
+*/
+
+input {
+    margin: 5px 0;
+    width: 9rem;
+
+    background-color: transparent;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: .3s ease;
+    color: black;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
+    line-height: normal;
+
+    border: none;
+    border-bottom: white solid 0;
+    border-radius: 3px !important;
+}
+
+input::placeholder {
+    text-align: center;
+    color: rgba(51, 51, 51, 0.5);
+}
+
+input:placeholder-shown {
+    text-align: start;
+}
+
+.custom-form .form-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.custom-form .form-group .animated-label {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 2;
+
+    font-weight: 300;
+    opacity: 0.7;
+    cursor: text;
+    transition: 0.2s ease all;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.custom-form .form-group .animated-label:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    height: 2px;
+    width: 10px;
+    visibility: hidden;
+    background-color: #ffffff;
+    transition: 0.2s ease all;
+}
+
+.custom-form .form-group .form-control {
+    position: relative;
+    z-index: 1;
+    border-radius: 0;
+    height: auto;
+    padding: 3px 0 5px;
+}
+
+.custom-form .form-group .form-control:focus {
+    outline: none;
+}
+
+.custom-form .form-group .form-control:focus ~ .animated-label:after {
+    visibility: visible;
+    width: 100%;
+    left: 0;
+}
+
+/*
+    Buttons
+*/
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 6rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/*#buttons > * {
+    flex: 0 0 33.3333%;
+}*/
+
+#buttons img {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: hsla(0, 0%, 10%, 0.4);
+    backdrop-filter: blur(5px);
+    outline: hsla(0, 0%, 7%, 0.5) solid 2px;
+    transition: .2s ease-in-out;
+}
+
+#buttons img:hover {
+    filter: invert(82%) sepia(31%) saturate(871%) hue-rotate(167deg) brightness(87%) contrast(91%);
+    outline: hsla(0, 0%, 27%, 0.5) solid 2px;
+}
+
+#buttons img:hover:not(#battery-status) {
+    cursor: pointer;
+}
+
+
+/*
+    footer
+*/
+
+#footer {
+    width: 100%;
+    height: 20%;
+}
