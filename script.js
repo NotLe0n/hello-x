@@ -96,24 +96,22 @@ function populateUserSelection() {
     }
 }
 
-function login() {
+async function login() {
     document.getElementById('message-field').setAttribute('hidden', '');
     document.getElementById('loader').removeAttribute('hidden');
 
-    setTimeout(async () => {
-        const user = document.getElementById('user').innerText;
-        const password = document.getElementById("pass").value;
+    const user = document.getElementById('user').innerText;
+    const password = document.getElementById("pass").value;
 
-        if (!lightdm.authenticate(user)) {
-            sendErrorMessage(`Failed to authenticate user: ${user}`);
-        }
+    if (!lightdm.authenticate(user)) {
+        sendErrorMessage(`Failed to authenticate user: ${user}`);
+    }
 
-        await wait(100); // mandatory
+    await wait(100); // mandatory
 
-        if (!lightdm.respond(password)) {
-            sendErrorMessage(`Couldn't respond with password: ${password}`);
-        }
-    }, 1000);
+    if (!lightdm.respond(password)) {
+        sendErrorMessage(`Couldn't respond with password: ${password}`);
+    }
 }
 
 lightdm.authentication_complete?.connect(() => {
