@@ -1,5 +1,9 @@
+@keyframes fade-in {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 :root {
-    font-min-size: 32px;
     font-size: 2em;
     --bg: url("img/backgrounds/clouds.jpg")
 }
@@ -15,6 +19,33 @@ html, body {
 body, .frosty:before {
     background: #191919 var(--bg) no-repeat fixed center;
     background-size: cover;
+}
+
+#session-settings {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.overlay-black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    animation: fade-in 1s ease forwards;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /*
@@ -34,16 +65,6 @@ h1#current-time {
     text-shadow: 0 0 9px #191919;
     font-size: 4rem;
     mix-blend-mode: overlay;
-}
-
-#container {
-    width: 100%;
-    height: 100%;
-    display: -webkit-flex;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 .wrapper {
@@ -97,7 +118,6 @@ h1#current-time {
     font-weight: bold;
     font-size: 1.5rem;
     text-decoration: underline white 1px;
-    cursor: pointer;
     filter: contrast(2);
 }
 
@@ -137,6 +157,12 @@ input:placeholder-shown {
     text-align: start; /* make caret start on the left */
 }
 
+.custom-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .custom-form .form-group {
     position: relative;
     margin-bottom: 16px;
@@ -170,6 +196,34 @@ input:placeholder-shown {
     visibility: visible;
     width: 100%;
     left: 0;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#loader {
+    width: 16px;
+    height: 16px;
+    border: 3px solid #c72970;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    margin-left: 10px;
+
+    transition: all 0.5s ease-in;
+    animation: rotate 1s infinite linear;
+}
+
+/*
+    message-field
+*/
+
+#message-field {
+    font-size: .5rem;
+    margin: 0;
+    color: red;
 }
 
 /*
@@ -206,7 +260,7 @@ input:placeholder-shown {
     outline: hsla(0, 0%, 27%, 0.5) solid 2px;
 }
 
-#buttons>img:hover {
+.clickable:hover {
     cursor: pointer;
 }
 

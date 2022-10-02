@@ -6,27 +6,29 @@
 	</head>
 
 	<body>
-		<div id="container">
+		<div class="overlay-black"></div>
+		<div class="container">
 			<h1 id="current-time"></h1>
-
+			<img src="img/icons/settings.svg" width="24px" height="24px" alt="session settings" title="session settings" id="session-settings" class="button clickable">
 			<div class="wrapper frosty">
-				<h2>Hello, <select id="user"></select>.</h2>
+				<h2>Hello, <select id="user" class="clickable"></select>.</h2>
 				<div id="prompt"></div>
-				<form action="javascript: submitPass()" class="custom-form">
+				<form action="javascript: login()" class="custom-form">
 					<div class="form-group">
 						<input type="password" class="form-control" name="pass" id="pass" placeholder="enter password" autofocus/>
 						<label for="pass" class="animated-label"></label>
 					</div>
+					<div id="loader" hidden></div>
 				</form>
+				<p id="message-field" hidden></p>
 				<div id="buttons">
-					<img src="img/icons/shutdown.svg" alt="shutdown" width="32px" height="32px" title="shutdown" onclick="lightdm.shutdown();" class="button">
-					<img src="img/icons/restart.svg" alt="restart" width="32px" height="32px" title="restart" onclick="lightdm.restart();" class="button">
-					<img src="img/icons/suspend.svg" alt="suspend" width="32px" height="32px" title="suspend" onclick="lightdm.suspend();" class="button">
+					<img src="img/icons/shutdown.svg" alt="shutdown" width="32px" height="32px" title="shutdown" onclick="lightdm.shutdown();" class="button clickable">
+					<img src="img/icons/restart.svg" alt="restart" width="32px" height="32px" title="restart" onclick="lightdm.restart();" class="button clickable">
+					<img src="img/icons/suspend.svg" alt="suspend" width="32px" height="32px" title="suspend" onclick="lightdm.suspend();" class="button clickable">
 					<div class="button">
 						<img src="img/icons/battery-unknown.svg" alt="battery-status" width="24px" height="24px" id="battery-status-icon" title="">
 						<p id="battery-status-text">unknown</p>
 					</div>
-
 				</div>
 			</div>
 

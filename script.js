@@ -1,12 +1,17 @@
 // true: most likely running the demo
 if ((typeof lightdm) === "undefined") {
     // create fake lightdm object
-    lightdm = {
+    var lightdm = {
+        can_access_battery: true,
         battery_data: { level: 100 },
         users: [ { username: "demo" } ],
+        authentication_complete: {
+            connect(callback) { this.callbacks.push(callback); },
+            callbacks: []
+        },
         authenticate() { return true },
-        respond() { return true },
-        start_session() { alert('logging in...') },
+        respond() { this.authentication_complete.callbacks.forEach(x => x()); return true },
+        start_session() { alert('logging in...'); return true },
         shutdown() { alert('shutting down...') },
         restart() { alert('restarting...') },
         suspend() { alert('suspending...') }
@@ -20,7 +25,6 @@ if ((typeof lightdm) === "undefined") {
     });
     document.getElementById('battery-status-icon').setAttribute('width', '12px');
     document.getElementById('battery-status-icon').setAttribute('height', '12px');
-
 }
 
 updateBackground(); // set background
@@ -28,9 +32,9 @@ updateBackground(); // set background
 updateTime(); // set time at start
 setInterval(updateTime, 1000); // update the current time every second
 
-updateBattery(); // set battery icon
-if (lightdm.battery_data !== undefined && lightdm.battery_update !== undefined) {
-    lightdm.battery_update.connect(updateBattery); // update battery info every status change
+if (lightdm.can_access_battery) {
+    updateBattery(); // set battery icon
+    lightdm.battery_update?.connect(updateBattery); // update battery info every status change
 }
 
 populateUserSelection();
@@ -60,14 +64,8 @@ function updateTime() {
 }
 
 function updateBattery() {
-    if (lightdm.battery_data === undefined) {
-        return;
-    }
-
-    console.log('updating battery info...');
-
     // round down to the nearest multiple of 10
-    const batteryLevel = lightdm.battery_data.level - lightdm.battery_data.level % 10;
+    const batteryLevel = lightdm.battery_data?.level - lightdm.battery_data?.level % 10;
     const img = document.getElementById('battery-status-icon');
 
     // set icon
@@ -83,7 +81,7 @@ function updateBattery() {
     );
 
     const text = document.getElementById('battery-status-text');
-    text.innerText = `${lightdm.battery_data.level}%`;
+    text.innerText = `${lightdm.battery_data?.level}%`;
 }
 
 function populateUserSelection() {
@@ -98,27 +96,42 @@ function populateUserSelection() {
     }
 }
 
-function submitPass() {
-    let elm = document.getElementById("pass");
-    console.log("password submitted");
+function login() {
+    document.getElementById('message-field').setAttribute('hidden', '');
+    document.getElementById('loader').removeAttribute('hidden');
 
     setTimeout(async () => {
         const user = document.getElementById('user').innerText;
+        const password = document.getElementById("pass").value;
 
-        let authSent = lightdm.authenticate(user);
-        console.log(`authenticated ${user}: ${authSent}`);
-
-        await wait(100); // mandatory
-
-        let responseSent = lightdm.respond(elm.value);
-        console.log(`responded with ${elm.value}: ${responseSent}`)
-        console.log('starting session...');
+        if (!lightdm.authenticate(user)) {
+            sendErrorMessage(`Failed to authenticate user: ${user}`);
+        }
 
         await wait(100); // mandatory
-        lightdm.start_session();
+
+        if (!lightdm.respond(password)) {
+            sendErrorMessage(`Couldn't respond with password: ${password}`);
+        }
     }, 1000);
 }
 
+lightdm.authentication_complete?.connect(() => {
+    if (!lightdm.start_session()) {
+        sendErrorMessage('Incorrect Password');
+    }
+    else {
+        document.getElementById('loader').setAttribute('hidden', '');
+    }
+});
+
 function wait(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function sendErrorMessage(msg) {
+    const field = document.getElementById('message-field');
+    field.removeAttribute('hidden');
+    field.innerText = msg;
+    document.getElementById('loader').setAttribute('hidden', '');
 }
