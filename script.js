@@ -12,8 +12,8 @@ populateUserSelection();
 
 // selects a random background each time
 function updateBackground() {
-    const images = ['clouds', 'konstanz', 'sunset']; // image names array
-    const index = Math.floor(Math.random() * 3); // select random number from 0-3
+    const images = ['clouds', 'konstanz', 'sunset', 'forest', 'mountains', 'bird', 'path', 'prague']; // image names array
+    const index = Math.floor(Math.random() * images.length); // select random number
 
     console.log('current background: ' + images[index]);
     // set --bg variable to random element of the image names array
