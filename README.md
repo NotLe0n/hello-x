@@ -3,6 +3,8 @@ A simple web-greeter theme.
 
 (image coming soon)
 
+### Try out the [demo](https://notle0n.github.io/hello-x/)!
+
 # Features
 - **Battery display** (you need to set `battery: True` in `/etc/lightdm/web-greeter.yml`)
 - **Background switches every reload**
