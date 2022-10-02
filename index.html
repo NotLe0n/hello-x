@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="style.css">
@@ -19,10 +19,14 @@
 					</div>
 				</form>
 				<div id="buttons">
-					<img src="img/icons/shutdown.svg" alt="shutdown" width="32px" height="32px" title="shutdown" onclick="lightdm.shutdown();">
-					<img src="img/icons/restart.svg" alt="restart" width="32px" height="32px" title="restart" onclick="lightdm.restart();">
-					<img src="img/icons/suspend.svg" alt="suspend" width="32px" height="32px" title="suspend" onclick="lightdm.suspend();">
-					<img src="img/icons/battery-unknown.svg" alt="battery-status" width="24px" height="24px" id="battery-status" title="">
+					<img src="img/icons/shutdown.svg" alt="shutdown" width="32px" height="32px" title="shutdown" onclick="lightdm.shutdown();" class="button">
+					<img src="img/icons/restart.svg" alt="restart" width="32px" height="32px" title="restart" onclick="lightdm.restart();" class="button">
+					<img src="img/icons/suspend.svg" alt="suspend" width="32px" height="32px" title="suspend" onclick="lightdm.suspend();" class="button">
+					<div class="button">
+						<img src="img/icons/battery-unknown.svg" alt="battery-status" width="24px" height="24px" id="battery-status-icon" title="">
+						<p id="battery-status-text">unknown</p>
+					</div>
+
 				</div>
 			</div>
 

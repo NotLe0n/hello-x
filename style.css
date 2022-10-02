@@ -183,11 +183,10 @@ input:placeholder-shown {
     padding: 20px;
 }
 
-/*#buttons > * {
-    flex: 0 0 33.3333%;
-}*/
-
-#buttons img {
+.button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin: 10px;
     padding: 5px;
     border-radius: 15px;
@@ -195,17 +194,22 @@ input:placeholder-shown {
     backdrop-filter: blur(5px);
     outline: hsla(0, 0%, 7%, 0.5) solid 2px;
     transition: .2s ease-in-out;
+    font-size: .5rem;
+    color: white;
 }
 
-#buttons img:hover {
+.button:hover {
     filter: invert(82%) sepia(31%) saturate(871%) hue-rotate(167deg) brightness(87%) contrast(91%);
     outline: hsla(0, 0%, 27%, 0.5) solid 2px;
 }
 
-#buttons img:hover:not(#battery-status) {
+#buttons>img:hover {
     cursor: pointer;
 }
 
+.button p {
+    margin: 0;
+}
 
 /*
     footer
