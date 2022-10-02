@@ -14,6 +14,13 @@ if ((typeof lightdm) === "undefined") {
 
     // emulate the smaller scale
     document.documentElement.style.setProperty('font-size', "1rem");
+    document.querySelectorAll('img.button').forEach(x => {
+        x.setAttribute('width', '16px');
+        x.setAttribute('height', '16px');
+    });
+    document.getElementById('battery-status-icon').setAttribute('width', '12px');
+    document.getElementById('battery-status-icon').setAttribute('height', '12px');
+
 }
 
 updateBackground(); // set background
