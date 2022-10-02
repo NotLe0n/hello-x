@@ -6,7 +6,10 @@ if ((typeof lightdm) === "undefined") {
         users: [ { username: "demo" } ],
         authenticate() { return true },
         respond() { return true },
-        start_session() {}
+        start_session() { alert('logging in...') },
+        shutdown() { alert('shutting down...') },
+        restart() { alert('restarting...') },
+        suspend() { alert('suspending...') }
     }
 
     // emulate the smaller scale
