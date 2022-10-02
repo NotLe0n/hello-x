@@ -1,4 +1,5 @@
 :root {
+    font-min-size: 32px;
     font-size: 2em;
     --bg: url("img/backgrounds/clouds.jpg")
 }
@@ -110,7 +111,7 @@ h1#current-time {
 
 input {
     margin: 5px 0;
-    width: 9rem;
+    width: 288px;
 
     background-color: transparent;
     box-shadow: none;
@@ -178,7 +179,7 @@ input:placeholder-shown {
 #buttons {
     display: flex;
     flex-wrap: wrap;
-    width: 6rem;
+    width: 192px;
     flex-direction: row;
     align-items: center;
     justify-content: center;

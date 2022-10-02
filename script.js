@@ -1,3 +1,18 @@
+// true: most likely running the demo
+if ((typeof lightdm) === "undefined") {
+    // create fake lightdm object
+    lightdm = {
+        battery_data: { level: 100 },
+        users: [ { username: "demo" } ],
+        authenticate() { return true },
+        respond() { return true },
+        start_session() {}
+    }
+
+    // emulate the smaller scale
+    document.documentElement.style.setProperty('font-size', "1rem");
+}
+
 updateBackground(); // set background
 
 updateTime(); // set time at start
