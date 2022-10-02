@@ -95,6 +95,7 @@ h1#current-time {
     font-weight: bold;
     font-size: 1.5rem;
     text-decoration: underline white 1px;
+    cursor: pointer;
 }
 
 #user:focus {
@@ -130,31 +131,12 @@ input::placeholder {
 }
 
 input:placeholder-shown {
-    text-align: start;
+    text-align: start; /* make caret start on the left */
 }
 
 .custom-form .form-group {
     position: relative;
     margin-bottom: 16px;
-}
-
-.custom-form .form-group .animated-label {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    bottom: 0;
-    margin: 0;
-    width: 100%;
-    z-index: 2;
-
-    font-weight: 300;
-    opacity: 0.7;
-    cursor: text;
-    transition: 0.2s ease all;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
 }
 
 .custom-form .form-group .animated-label:after {
@@ -166,7 +148,7 @@ input:placeholder-shown {
     width: 10px;
     visibility: hidden;
     background-color: #ffffff;
-    transition: 0.2s ease all;
+    transition: 0.5s ease all;
 }
 
 .custom-form .form-group .form-control {
