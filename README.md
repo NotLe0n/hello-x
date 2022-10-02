@@ -1,7 +1,7 @@
 # hello-x
 A simple web-greeter theme.
 
-(image coming soon)
+![image](https://user-images.githubusercontent.com/26361108/193463855-90106e0d-686d-43d3-94c4-9f116140e7cb.png)
 
 ### Try out the [demo](https://notle0n.github.io/hello-x/)!
 
