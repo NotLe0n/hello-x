@@ -13,10 +13,10 @@ A simple web-greeter theme.
 
 # Backgrounds
 ###### photographed by NotLe0n
-| ![clouds](img/backgrounds/clouds.jpg) | ![sunset](img/backgrounds/sunset.jpg)       | ![konstanz](img/backgrounds/konstanz.jpg) |
-|---------------------------------------|---------------------------------------------|-------------------------------------------|
-| ![forest](img/backgrounds/forest.jpg) | ![mountains](img/backgrounds/mountains.jpg) | ![path](img/backgrounds/path.jpg)         |
-| ![prague](img/backgrounds/prague.jpg) | ![bird](img/backgrounds/bird.jpg)           |                                           |
+| ![clouds](img/backgrounds/clouds.jpg) | ![sunset](img/backgrounds/sunset.jpg)       | ![konstanz](img/backgrounds/konstanz.jpg)             |
+|---------------------------------------|---------------------------------------------|-------------------------------------------------------|
+| ![forest](img/backgrounds/forest.jpg) | ![mountains](img/backgrounds/mountains.jpg) | ![path](img/backgrounds/path.jpg)                     |
+| ![prague](img/backgrounds/prague.jpg) | ![tenerife](img/backgrounds/tenerife.jpg)   | ![neuschwanstein](img/backgrounds/neuschwanstein.jpg) |
 
 # Installation
 1. Install `web-greeter` or `nody-greeter`
