@@ -2,6 +2,7 @@
 if ((typeof lightdm) === "undefined") {
     // create fake lightdm object
     var lightdm = {
+        layout: {short_description: "en"},
         can_access_battery: true,
         battery_data: { level: 100 },
         users: [ { username: "demo" } ],
@@ -40,6 +41,8 @@ if (lightdm.can_access_battery) {
 }
 
 populateUserSelection();
+
+updateHello();
 
 // selects a random background each time
 function updateBackground() {
@@ -96,6 +99,10 @@ function populateUserSelection() {
 
         userSelect.appendChild(opt);
     }
+}
+
+function updateHello() {
+    document.getElementById('hello').innerText = hello[lightdm.layout?.short_description];
 }
 
 async function login() {

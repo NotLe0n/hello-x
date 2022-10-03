@@ -5,7 +5,7 @@
 
 :root {
     font-size: 2em;
-    --bg: url("img/backgrounds/clouds.jpg")
+    --bg: url("img/backgrounds/clouds.jpg");
 }
 
 html, body {

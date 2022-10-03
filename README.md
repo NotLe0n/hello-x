@@ -10,6 +10,7 @@ A simple web-greeter theme.
 - **Background switches every reload**
 - **Hidden user switcher**
 - **Shutdown, restart, and suspend buttons**
+- **Localized**
 
 # Backgrounds
 ###### photographed by NotLe0n
@@ -25,3 +26,22 @@ A simple web-greeter theme.
 4. set geeter.theme to `hello-x` in `/etc/lightdm/web-greeter.yml`
 5. set `battery: True` in `/etc/lightdm/web-greeter.yml`
 6. reboot maybe
+
+# Localization
+These are all languages that have the word "Hello" translated:
+* English
+* German
+* Italian
+* French
+* Spanish
+* Dutch
+* Swedish
+* Norwegian
+* Turkish
+* Russian
+* Polish
+* Korean
+* Japanese
+* Chinese
+
+To add your own Language to this list, edit the [hello.js](hello.js) file.
