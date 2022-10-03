@@ -11,7 +11,7 @@ if ((typeof lightdm) === "undefined") {
         },
         authenticate() { return true },
         respond() { this.authentication_complete.callbacks.forEach(x => x()); return true },
-        start_session() { alert('logging in...'); return true },
+        start_session(session) { alert('logging in...'); return true },
         shutdown() { alert('shutting down...') },
         restart() { alert('restarting...') },
         suspend() { alert('suspending...') }
@@ -26,6 +26,8 @@ if ((typeof lightdm) === "undefined") {
     document.getElementById('battery-status-icon').setAttribute('width', '12px');
     document.getElementById('battery-status-icon').setAttribute('height', '12px');
 }
+
+let selectedSession = lightdm.default_session;
 
 updateBackground(); // set background
 
@@ -115,7 +117,7 @@ async function login() {
 }
 
 lightdm.authentication_complete?.connect(() => {
-    if (!lightdm.start_session()) {
+    if (!lightdm.start_session(selectedSession)) {
         sendErrorMessage('Incorrect Password');
     }
     else {
