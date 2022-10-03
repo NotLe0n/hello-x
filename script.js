@@ -29,6 +29,7 @@ if ((typeof lightdm) === "undefined") {
 }
 
 let selectedSession = lightdm.default_session;
+const locale = lightdm.layout?.short_description;
 
 updateBackground(); // set background
 
@@ -60,12 +61,9 @@ function updateBackground() {
 // updates the current time
 function updateTime() {
     const today = new Date();
-    document.getElementById("current-time").innerHTML = today.toLocaleTimeString([], {
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: "2-digit"
-    });
+    document.getElementById("current-time").innerHTML = today.toLocaleTimeString([locale], { hour12: false });
+
+    document.getElementById("current-date").innerHTML = today.toLocaleDateString([locale], { dateStyle: "long"  })
 }
 
 function updateBattery() {
@@ -102,7 +100,7 @@ function populateUserSelection() {
 }
 
 function updateHello() {
-    document.getElementById('hello').innerText = hello[lightdm.layout?.short_description];
+    document.getElementById('hello').innerText = hello[locale];
 }
 
 async function login() {

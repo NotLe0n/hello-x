@@ -52,19 +52,27 @@ body, .frosty:before {
     Time display
 */
 
-h1#current-time {
+#time-display {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: 20%;
-    margin: 0;
 
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent);
     color: lightgray;
     text-shadow: 0 0 9px #191919;
+}
+
+#time-display h1 {
     font-size: 4rem;
-    mix-blend-mode: overlay;
+    margin: 0;
+}
+
+#time-display h4 {
+    margin: 0;
+
 }
 
 .wrapper {
