@@ -1,7 +1,7 @@
 # hello-x
 A simple web-greeter theme.
 
-![image](https://user-images.githubusercontent.com/26361108/193463855-90106e0d-686d-43d3-94c4-9f116140e7cb.png)
+![preview image](https://user-images.githubusercontent.com/26361108/193652282-3e808950-12fe-4dfb-9f35-cdaf9a31f9d8.png)
 
 ### Try out the [demo](https://notle0n.github.io/hello-x/)!
 
@@ -44,4 +44,4 @@ These are all languages that have the word "Hello" translated:
 * Japanese
 * Chinese
 
-To add your own Language to this list, edit the [hello.js](hello.js) file.
+To add your own Language to this list, edit the [hello.js](hello.js) file. If your language uses unicode characters, you need to [escape](https://dencode.com/string/unicode-escape) them before putting them in.
