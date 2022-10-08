@@ -276,6 +276,25 @@ input:placeholder-shown {
     margin: 0;
 }
 
+#settings {
+    width: 16rem;
+    height: 8rem;
+    position: absolute;
+    top: 80px;
+    right: -18rem;
+    transition: ease 1s;
+    padding: 10px;
+}
+
+#settings select {
+    border: white solid 1px;
+    border-radius: 5px;
+    height: 1rem;
+    font-size: .5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    outline: none !important;
+}
+
 /*
     footer
 */

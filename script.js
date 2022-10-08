@@ -10,11 +10,15 @@ if ((typeof lightdm) === "undefined") {
             connect(callback) { this.callbacks.push(callback); },
             callbacks: []
         },
+        sessions: [
+            { key: "demo-session1" },
+            { key: "demo-session2" }
+        ],
         authenticate() { return true },
         respond() { this.authentication_complete.callbacks.forEach(x => x()); return true },
         start_session(session) { alert('logging in...'); return true },
         shutdown() { alert('shutting down...') },
-        restart() { alert('restarting...') },
+        restart() { alert('restarting...'); document.location.reload() },
         suspend() { alert('suspending...') }
     }
 
@@ -44,6 +48,8 @@ if (lightdm.can_access_battery) {
 populateUserSelection();
 
 updateHello();
+
+populateSettingsSessionSelect();
 
 // selects a random background each time
 function updateBackground() {
@@ -114,7 +120,7 @@ async function login() {
         sendErrorMessage(`Failed to authenticate user: ${user}`);
     }
 
-    await wait(100); // mandatory
+    await new Promise((resolve) => setTimeout(resolve, 100)); // mandatory
 
     if (!lightdm.respond(password)) {
         sendErrorMessage(`Couldn't respond with password: ${password}`);
@@ -130,13 +136,30 @@ lightdm.authentication_complete?.connect(() => {
     }
 });
 
-function wait(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 function sendErrorMessage(msg) {
     const field = document.getElementById('message-field');
     field.removeAttribute('hidden');
     field.innerText = msg;
     document.getElementById('loader').setAttribute('hidden', '');
+}
+
+let settingsOpen = false;
+function toggleSettings() {
+    const elm = document.getElementById('settings');
+    if (settingsOpen) {
+        elm.style.right = "-18rem";
+    }
+    else {
+        elm.style.right = "1rem";
+    }
+    settingsOpen = !settingsOpen;
+}
+
+function populateSettingsSessionSelect() {
+    let select = document.getElementById('session-select');
+    for (const session of lightdm.sessions) {
+        let opt = document.createElement('option');
+        opt.innerText = session.key;
+        select.appendChild(opt);
+    }
 }

@@ -14,7 +14,7 @@
 				<h4 id="current-date"></h4>
 			</div>
 
-			<img src="img/icons/settings.svg" width="24px" height="24px" alt="session settings" title="session settings" id="session-settings" class="button clickable">
+			<img src="img/icons/settings.svg" width="32px" height="32px" alt="session settings" title="session settings" id="session-settings" class="button clickable" onclick="toggleSettings()">
 			<div class="wrapper frosty">
 				<h2><span id="hello">Hello</span>, <select id="user" class="clickable"></select>.</h2>
 				<div id="prompt"></div>
@@ -38,6 +38,13 @@
 			</div>
 
 			<div id="footer"></div>
+		</div>
+		<div id="settings" class="frosty">
+			<h3>Settings</h3>
+			<label>
+				Session:
+				<select id="session-select" onchange="selectedSession = this.value"></select>
+			</label>
 		</div>
 		<script type="application/javascript" src="hello.js"></script>
 		<script type="application/javascript" src="script.js"></script>
