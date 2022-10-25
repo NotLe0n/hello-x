@@ -11,6 +11,7 @@ A simple web-greeter theme.
 - **Hidden user switcher**
 - **Shutdown, restart, and suspend buttons**
 - **Localized**
+- **Customization through css**
 
 # Backgrounds
 ###### photographed by NotLe0n
@@ -45,3 +46,12 @@ These are all languages that have the word "Hello" translated:
 * Chinese
 
 To add your own Language to this list, edit the [hello.js](hello.js) file. If your language uses unicode characters, you need to [escape](https://dencode.com/string/unicode-escape) them before putting them in.
+
+# Customization
+## Changing theme
+To customize the theme, you'll have to edit the [style.css](style.css) file.
+The :root element holds common colors. If you know how to write CSS you may also change other elements to your liking.
+
+## Adding backgrounds
+1. Add a .jpg file to the [img/backgrounds](img/backgrounds/) directory.
+2. Append the name of the file (without extention) to the `images` array inside `updateBackground()`
