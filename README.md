@@ -21,12 +21,18 @@ A simple web-greeter theme.
 | ![prague](img/backgrounds/prague.jpg) | ![tenerife](img/backgrounds/tenerife.jpg)   | ![neuschwanstein](img/backgrounds/neuschwanstein.jpg) |
 
 # Installation
-1. Install `web-greeter` or `nody-greeter`
-2. replace `greeter-session=slick-greeter` with `greeter-session=web-greeter` (or nody-greeter if you installed that) in `/usr/share/lightdm/lightdm.conf.d/90-slick-greeter.conf`
-3. Clone repo into `/usr/share/web-greeter/themes/`
-4. set geeter.theme to `hello-x` in `/etc/lightdm/web-greeter.yml`
-5. set `battery: True` in `/etc/lightdm/web-greeter.yml`
-6. reboot maybe
+1. ### Install [`web-greeter`](https://github.com/JezerM/web-greeter) or [`nody-greeter`](https://github.com/JezerM/nody-greeter)
+2. ### Replace `greeter-session=slick-greeter` with `greeter-session=web-greeter` (or nody-greeter if you installed that) in `/usr/share/lightdm/lightdm.conf.d/90-slick-greeter.conf` (for my computer at least)
+![step 2](https://user-images.githubusercontent.com/26361108/204892175-b2ff226d-8a9a-498c-9411-a866f26892e0.png)
+
+3. ### Clone this repo into `/usr/share/web-greeter/themes/`
+4. ### Set geeter.theme to `hello-x` in `/etc/lightdm/web-greeter.yml`
+![step 4](https://user-images.githubusercontent.com/26361108/204892590-c68dc0ee-ccde-405e-b3a2-a8150f8e90d8.png)
+
+5. ### Set `battery: True` in `/etc/lightdm/web-greeter.yml`
+![step 5](https://user-images.githubusercontent.com/26361108/204892818-fcadc9d7-97a0-47cf-8236-b5254e32e036.png)
+
+6. ### reboot maybe
 
 # Localization
 These are all languages that have the word "Hello" translated:
