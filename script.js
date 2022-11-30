@@ -163,3 +163,14 @@ function populateSettingsSessionSelect() {
         select.appendChild(opt);
     }
 }
+
+document.getElementById('pass').addEventListener('keydown',
+    (event) => {
+    const capsImg = document.getElementById('caps-img');
+    if (event.getModifierState && event.getModifierState('CapsLock')) {
+        capsImg.removeAttribute('hidden')
+    }
+    else {
+        capsImg.setAttribute('hidden', '')
+    }
+});
