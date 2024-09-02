@@ -306,8 +306,10 @@ input:placeholder-shown {
 */
 
 #settings {
+	display: grid;
+	grid-template-rows: repeat(3, 2rem);
+	align-items: center;
     width: 16rem;
-    height: 8rem;
     position: absolute;
     top: 80px;
     right: -18rem;
@@ -322,6 +324,14 @@ input:placeholder-shown {
     font-size: .5rem;
     background-color: var(--select-bg-color);
     outline: none !important;
+}
+
+#settings button:hover {
+	outline: white solid 2px;
+}
+
+#bg-chng {
+	font-size: 0.75rem;
 }
 
 /*

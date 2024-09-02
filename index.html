@@ -41,11 +41,14 @@
 			<div id="footer"></div>
 		</div>
 		<div id="settings" class="frosty">
-			<h3>Settings</h3>
-			<label>
-				Session:
+			<h3 style="text-align: center;">Settings</h3>
+			<label style="display: flex; align-items: center;">
+				Session: 
 				<select id="session-select" onchange="selectedSession = this.value"></select>
 			</label>
+			
+			<button class="frosty" onclick="updateBackground()" id="bg-chng">Change Background</button> 
+
 		</div>
 		<script type="application/javascript" src="hello.js"></script>
 		<script type="application/javascript" src="script.js"></script>
