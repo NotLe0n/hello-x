@@ -17,28 +17,29 @@
 			<img src="img/icons/settings.svg" width="32px" height="32px" alt="session settings" title="session settings" id="session-settings" class="button clickable" onclick="toggleSettings()">
 			<div class="wrapper frosty">
 				<h2><span id="hello">Hello</span>, <select id="user" class="clickable"></select>.</h2>
-				<div id="prompt"></div>
-				<form action="javascript: login()" class="custom-form">
-					<div class="form-group">
-						<input type="password" class="form-control" name="pass" id="pass" placeholder="enter password" autofocus/>
-						<label for="pass" class="animated-label"></label>
-					</div>
-					<div id="loader" hidden></div>
-					<img id="caps-img" src="img/icons/caps-lock.svg" alt="caps-lock" title="caps lock is active" width="32" height="32" hidden>
-				</form>
-				<p id="message-field" hidden></p>
-				<div id="buttons">
+				<div id="login-container">
+					<form action="javascript: login()" class="custom-form">
+						<div class="form-group">
+							<input type="password" class="form-control" name="pass" id="pass" placeholder="enter password" autofocus/>
+							<div id="status-overlay">
+								<div id="loader" hidden></div>
+								<img id="caps-img" src="img/icons/caps-lock.svg" alt="caps-lock" title="caps lock is active" width="32" height="32" hidden>
+							</div>
+							<label for="pass" class="animated-label"></label>
+						</div>
+					</form>
+					<p id="message-field"></p>
+				</div>
+				<div class="button-container">
 					<img src="img/icons/shutdown.svg" alt="shutdown" width="32px" height="32px" title="shutdown" onclick="lightdm.shutdown();" class="button clickable">
 					<img src="img/icons/restart.svg" alt="restart" width="32px" height="32px" title="restart" onclick="lightdm.restart();" class="button clickable">
 					<img src="img/icons/suspend.svg" alt="suspend" width="32px" height="32px" title="suspend" onclick="lightdm.suspend();" class="button clickable">
-					<div class="button">
-						<img src="img/icons/battery-unknown.svg" alt="battery-status" width="24px" height="24px" id="battery-status-icon" title="">
-						<p id="battery-status-text">unknown</p>
-					</div>
+				</div>
+				<div class="button">
+					<img src="img/icons/battery-unknown.svg" alt="battery-status" width="24px" height="24px" id="battery-status-icon" title="">
+					<p id="battery-status-text">unknown</p>
 				</div>
 			</div>
-
-			<div id="footer"></div>
 		</div>
 		<div id="settings" class="frosty">
 			<h3 style="text-align: center;">Settings</h3>

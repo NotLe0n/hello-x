@@ -53,7 +53,7 @@ populateSettingsSessionSelect();
 
 // selects a random background each time
 function updateBackground() {
-    const images = ['clouds', 'konstanz', 'sunset', 'forest', 'mountains', 'tenerife', 'path', 'prague', 'neuschwanstein', 'castle', 'library', 'modern-architecture', 'rotterdam']; // image names array
+    const images = ['clouds', 'konstanz', 'sunset', 'forest', 'mountains', 'tenerife', 'path', 'prague', 'neuschwanstein', 'castle', 'library', 'modern-architecture', 'rotterdam', 'straßburg', 'valley']; // image names array
     const index = Math.floor(Math.random() * images.length); // select random number
 
     console.log('current background: ' + images[index]);
@@ -110,7 +110,7 @@ function updateHello() {
 }
 
 async function login() {
-    document.getElementById('message-field').setAttribute('hidden', '');
+    document.getElementById('message-field').innerText = "";
     document.getElementById('loader').removeAttribute('hidden');
 
     const user = document.getElementById('user').innerText;
@@ -138,7 +138,6 @@ lightdm.authentication_complete?.connect(() => {
 
 function sendErrorMessage(msg) {
     const field = document.getElementById('message-field');
-    field.removeAttribute('hidden');
     field.innerText = msg;
     document.getElementById('loader').setAttribute('hidden', '');
 }

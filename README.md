@@ -13,7 +13,7 @@ A simple web-greeter theme.
 - **Localized**
 - **Customization through css**
 
-# Backgrounds
+# Background samples
 ###### photographed by NotLe0n
 | ![clouds](img/backgrounds/clouds.jpg) | ![sunset](img/backgrounds/sunset.jpg)       | ![konstanz](img/backgrounds/konstanz.jpg)             |
 |---------------------------------------|---------------------------------------------|-------------------------------------------------------|
