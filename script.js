@@ -113,7 +113,7 @@ async function login() {
     document.getElementById('message-field').innerText = "";
     document.getElementById('loader').removeAttribute('hidden');
 
-    const user = document.getElementById('user').innerText;
+    const user = document.getElementById('user').value;
     const password = document.getElementById("pass").value;
 
     if (!lightdm.authenticate(user)) {
